@@ -1,7 +1,7 @@
 import { Menu } from 'lucide-react';
 import { useState } from 'react';
 import type { FilterType } from '../App';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface HeaderProps {
   activeFilter: FilterType;

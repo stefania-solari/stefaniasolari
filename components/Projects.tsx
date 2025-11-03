@@ -2,7 +2,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ProjectDetail } from "./ProjectDetail";
 import { useState, useMemo } from "react";
 import type { FilterType } from "../App";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 
 // ============================================================================
 // PROJECT TYPE DEFINITION
