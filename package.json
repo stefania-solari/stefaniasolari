@@ -49,8 +49,6 @@
     "tailwind-merge": "^2.6.0",
     "recharts": "^2.15.0",
     "embla-carousel-react": "^8.5.1",
-    "react-day-picker": "^8.10.1",
-    "date-fns": "^4.1.0",
     "cmdk": "^1.0.0",
     "vaul": "^1.1.1",
     "input-otp": "^1.4.1",
