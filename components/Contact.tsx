@@ -1,5 +1,6 @@
 import { Mail, Linkedin, Download } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 export function Contact() {
   return (
@@ -35,16 +36,17 @@ export function Contact() {
               Let's create something meaningful together.
             </p>
 
-            <motion.a
-              href="#cv"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-              className="inline-flex items-center gap-3 px-6 py-3 border border-foreground hover:bg-foreground hover:text-background transition-all duration-300 text-sm"
-            >
-              <Download size={18} />
-              <span>VIEW & DOWNLOAD CV</span>
-            </motion.a>
+            <Link to="/cv">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
+                className="inline-flex items-center gap-3 px-6 py-3 border border-foreground hover:bg-foreground hover:text-background transition-all duration-300 text-sm"
+              >
+                <Download size={18} />
+                <span>VIEW & DOWNLOAD CV</span>
+              </motion.div>
+            </Link>
             
             <div className="space-y-4 text-sm">
               <motion.a 

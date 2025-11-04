@@ -1,7 +1,8 @@
 import { Menu } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import type { FilterType } from '../App';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface HeaderProps {
   activeFilter: FilterType;
@@ -105,6 +106,15 @@ export function Header({ activeFilter, setActiveFilter }: HeaderProps) {
             >
               CONTACT
             </motion.button>
+            
+            {/* Admin Link (discrete) */}
+            <Link 
+              to="/admin"
+              className="text-xs opacity-20 hover:opacity-50 transition-opacity duration-300"
+              title="Admin Panel"
+            >
+              ⚙
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -155,6 +165,15 @@ export function Header({ activeFilter, setActiveFilter }: HeaderProps) {
               <button onClick={() => scrollToSection('contact')} className="text-left hover:opacity-50 transition-opacity duration-300">
                 CONTACT
               </button>
+              
+              {/* Admin Link (discrete) */}
+              <Link 
+                to="/admin"
+                className="text-xs opacity-20 hover:opacity-50 transition-opacity duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                ⚙ Admin
+              </Link>
             </motion.nav>
           )}
         </AnimatePresence>
