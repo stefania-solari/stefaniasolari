@@ -37,7 +37,7 @@ export function CV({ onClose }: CVProps) {
       </div>
 
       {/* CV Content */}
-      <div className="max-w-4xl mx-auto px-8 py-16 print:py-8">
+      <div className="max-w-4xl mx-auto px-8 md:px-12 lg:px-16 py-16 print:py-8 print:px-8">
         {/* Header */}
         <header className="mb-12 print:mb-8 border-b border-foreground pb-8 print:pb-6">
           <h1 className="text-4xl print:text-3xl mb-4">STEFANIA SOLARI</h1>

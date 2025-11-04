@@ -2,8 +2,8 @@ import { motion } from "motion/react";
 
 export function About() {
   return (
-    <section id="about" className="min-h-screen px-6 py-32">
-      <div className="max-w-screen-2xl mx-auto">
+    <section id="about" className="min-h-screen py-40">
+      <div className="max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

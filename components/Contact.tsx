@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 export function Contact() {
   return (
-    <section id="contact" className="min-h-screen px-6 py-32 flex items-center">
-      <div className="max-w-screen-2xl mx-auto w-full">
+    <section id="contact" className="min-h-screen py-40 flex items-center">
+      <div className="max-w-7xl mx-auto w-full">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

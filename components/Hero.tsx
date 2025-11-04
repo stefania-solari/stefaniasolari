@@ -17,7 +17,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Subtle animated grid background */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div
@@ -46,7 +46,7 @@ export function Hero() {
         className="absolute bottom-12 right-12 w-20 h-20 border-r-2 border-b-2 border-foreground pointer-events-none hidden md:block"
       />
 
-      <div className="max-w-5xl w-full relative z-10">
+      <div className="max-w-6xl w-full relative z-10">
         <div className="space-y-12">
           {/* Eyebrow with stagger animation */}
           <motion.div

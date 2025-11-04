@@ -36,7 +36,7 @@ export function Header({ activeFilter, setActiveFilter }: HeaderProps) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="max-w-screen-2xl mx-auto px-6 py-5">
+      <div className="ml-6 mr-6 md:ml-8 md:mr-8 lg:ml-12 lg:mr-12 py-6">
         <div className="flex items-center justify-between">
           <button 
             onClick={() => scrollToSection('home')}

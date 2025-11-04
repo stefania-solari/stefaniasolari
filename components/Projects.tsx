@@ -80,8 +80,8 @@ export function Projects({ activeFilter }: ProjectsProps) {
 
   return (
     <>
-      <section id="work" className="min-h-screen px-6 py-24">
-        <div className="max-w-screen-2xl mx-auto">
+      <section id="work" className="min-h-screen py-32">
+        <div className="max-w-7xl mx-auto">
           <motion.div 
             key={activeFilter}
             initial={{ opacity: 0, y: -10 }}
@@ -102,7 +102,7 @@ export function Projects({ activeFilter }: ProjectsProps) {
 
           <motion.div 
             layout
-            className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3"
+            className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-x-16 md:gap-y-20"
           >
             {filteredProjects.map((project, index) => (
               <motion.button
@@ -118,42 +118,36 @@ export function Projects({ activeFilter }: ProjectsProps) {
                 onClick={() => setSelectedProject(index)}
                 className="group text-left relative overflow-hidden"
               >
-                <div className="relative aspect-[3/4] bg-muted overflow-hidden border border-transparent hover:border-foreground/10 transition-all duration-300">
+                <div className="relative aspect-[3/4] bg-muted/30 overflow-hidden border border-border/20 hover:border-foreground/20 transition-all duration-500">
                   <ImageWithFallback
                     src={project.images[0]}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-90"
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.02]"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
                   
-                  {/* Overlay info */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/70 to-transparent"
-                  >
-                    <div className="flex items-start justify-between mb-2">
-                      <h3 className="tracking-tight text-white">
-                        {project.title}
-                      </h3>
-                      <motion.span
-                        initial={{ opacity: 0, x: -5 }}
-                        whileHover={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="text-white/60 text-xs mt-1 font-mono"
-                      >
-                        VIEW →
-                      </motion.span>
-                    </div>
-                    <div className="flex gap-4 text-white/70 text-sm font-mono">
-                      <span className="uppercase tracking-wider">{project.category}</span>
-                      <span>{project.year}</span>
-                    </div>
-                  </motion.div>
-
-                  {/* Corner accent */}
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-white/0 group-hover:border-white/30 transition-all duration-500" />
+                  {/* Minimal corner accent */}
+                  <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-foreground/0 group-hover:border-foreground/40 transition-all duration-500" />
+                </div>
+                
+                {/* Info below image - always visible */}
+                <div className="mt-4 space-y-1">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="tracking-tight">
+                      {project.title}
+                    </h3>
+                    <motion.span
+                      initial={{ opacity: 0, x: -5 }}
+                      whileHover={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                      →
+                    </motion.span>
+                  </div>
+                  <div className="flex gap-4 text-muted-foreground">
+                    <span className="uppercase tracking-wider">{project.category}</span>
+                    <span>{project.year}</span>
+                  </div>
                 </div>
               </motion.button>
             ))}

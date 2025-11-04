@@ -19,12 +19,17 @@ function HomePage() {
     <div className="min-h-screen bg-background text-foreground">
       <ScrollProgress />
       <Header activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
-      <main>
-        <Hero />
-        <Projects activeFilter={activeFilter} />
-        <About />
-        <Contact />
-      </main>
+      {/* Container wrapper with side margins */}
+      <div className="ml-6 mr-6 md:ml-8 md:mr-8 lg:ml-12 lg:mr-12">
+        <main>
+          <Hero />
+          <Projects activeFilter={activeFilter} />
+          {/* Extra spacing before About */}
+          <div className="h-32 md:h-48" />
+          <About />
+          <Contact />
+        </main>
+      </div>
     </div>
   );
 }

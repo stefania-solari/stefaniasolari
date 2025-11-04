@@ -192,7 +192,7 @@ export function ProjectDetail({
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-4xl mx-auto px-6 md:px-12 py-20 md:py-32 text-center"
+              className="max-w-4xl mx-auto px-8 md:px-12 lg:px-16 py-20 md:py-32 text-center"
             >
               {/* Title */}
               <h1 className="mb-6 tracking-tight text-3xl md:text-4xl">
@@ -223,7 +223,7 @@ export function ProjectDetail({
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="max-w-5xl mx-auto px-6 md:px-12 py-20 md:py-32 space-y-20 md:space-y-32"
+                  className="max-w-5xl mx-auto px-8 md:px-12 lg:px-16 py-20 md:py-32 space-y-20 md:space-y-32"
                 >
                   {/* Role */}
                   {project.role && (
