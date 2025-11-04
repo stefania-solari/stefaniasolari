@@ -77,7 +77,7 @@ export function Contact() {
               <p className="text-muted-foreground mb-4 text-sm">SOCIAL</p>
               <div className="space-y-3 text-sm">
                 <motion.a 
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/stefania-solari/"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 4 }}
