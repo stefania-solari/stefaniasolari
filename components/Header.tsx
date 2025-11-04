@@ -46,9 +46,9 @@ export function Header({ activeFilter, setActiveFilter }: HeaderProps) {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 text-sm">
+          <nav className="hidden lg:flex items-center gap-6 text-sm">
             {/* Filters */}
-            <div className="flex gap-4 mr-4 border-r border-border/50 pr-8">
+            <div className="flex gap-3 border-r border-border/50 pr-6">
               {filters.map((filter) => (
                 <motion.button
                   key={filter}
@@ -119,7 +119,7 @@ export function Header({ activeFilter, setActiveFilter }: HeaderProps) {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden hover:opacity-50 transition-opacity duration-300"
+            className="lg:hidden hover:opacity-50 transition-opacity duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <Menu size={18} />
@@ -134,7 +134,7 @@ export function Header({ activeFilter, setActiveFilter }: HeaderProps) {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden flex flex-col gap-4 mt-6 pb-2 text-sm overflow-hidden"
+              className="lg:hidden flex flex-col gap-4 mt-6 pb-2 text-sm overflow-hidden"
             >
               {/* Filters */}
               <div className="flex gap-4 pb-4 border-b border-border/50">
