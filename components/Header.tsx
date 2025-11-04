@@ -1,8 +1,7 @@
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { FilterType } from '../App';
-import { motion, AnimatePresence } from 'motion/react';
 
 interface HeaderProps {
   activeFilter: FilterType;
@@ -38,6 +37,7 @@ export function Header({ activeFilter, setActiveFilter }: HeaderProps) {
     <header className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="ml-6 mr-6 md:ml-8 md:mr-8 lg:ml-12 lg:mr-12 py-6">
         <div className="flex items-center justify-between">
+          {/* Logo */}
           <button 
             onClick={() => scrollToSection('home')}
             className="hover:opacity-50 transition-opacity duration-300"
@@ -50,11 +50,9 @@ export function Header({ activeFilter, setActiveFilter }: HeaderProps) {
             {/* Filters */}
             <div className="flex gap-3 border-r border-border/50 pr-6">
               {filters.map((filter) => (
-                <motion.button
+                <button
                   key={filter}
                   onClick={() => handleFilterClick(filter)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                   className={`relative transition-all duration-300 ${
                     activeFilter === filter
                       ? 'opacity-100'
@@ -62,50 +60,35 @@ export function Header({ activeFilter, setActiveFilter }: HeaderProps) {
                   }`}
                 >
                   {activeFilter === filter && (
-                    <motion.span
-                      layoutId="activeFilter"
-                      className="absolute -left-2 top-1/2 -translate-y-1/2 text-xs"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    >
+                    <span className="absolute -left-2 top-1/2 -translate-y-1/2 text-xs">
                       [
-                    </motion.span>
+                    </span>
                   )}
-                  <motion.span
-                    animate={activeFilter === filter ? { scale: [1, 1.1, 1] } : { scale: 1 }}
-                    transition={{ duration: 0.4 }}
-                  >
+                  <span>
                     {filter}
-                  </motion.span>
+                  </span>
                   {activeFilter === filter && (
-                    <motion.span
-                      layoutId="activeFilterEnd"
-                      className="absolute -right-2 top-1/2 -translate-y-1/2 text-xs"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    >
+                    <span className="absolute -right-2 top-1/2 -translate-y-1/2 text-xs">
                       ]
-                    </motion.span>
+                    </span>
                   )}
-                </motion.button>
+                </button>
               ))}
             </div>
 
             {/* Nav Links */}
-            <motion.button 
-              whileHover={{ x: 2 }}
-              whileTap={{ scale: 0.95 }}
+            <button 
               onClick={() => scrollToSection('about')} 
               className="hover:opacity-50 transition-opacity duration-300"
             >
               ABOUT
-            </motion.button>
-            <motion.button 
-              whileHover={{ x: 2 }}
-              whileTap={{ scale: 0.95 }}
+            </button>
+            <button 
               onClick={() => scrollToSection('contact')} 
               className="hover:opacity-50 transition-opacity duration-300"
             >
               CONTACT
-            </motion.button>
+            </button>
             
             {/* Admin Link (discrete) */}
             <Link 
@@ -121,62 +104,55 @@ export function Header({ activeFilter, setActiveFilter }: HeaderProps) {
           <button 
             className="lg:hidden hover:opacity-50 transition-opacity duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
           >
-            <Menu size={18} />
+            {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.nav 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="lg:hidden flex flex-col gap-4 mt-6 pb-2 text-sm overflow-hidden"
-            >
-              {/* Filters */}
-              <div className="flex gap-4 pb-4 border-b border-border/50">
-                {filters.map((filter) => (
-                  <button
-                    key={filter}
-                    onClick={() => {
-                      handleFilterClick(filter);
-                      setIsMenuOpen(false);
-                    }}
-                    className={`transition-opacity duration-300 ${
-                      activeFilter === filter
-                        ? 'opacity-100'
-                        : 'opacity-40 hover:opacity-70'
-                    }`}
-                  >
-                    {activeFilter === filter && '[ '}
-                    {filter}
-                    {activeFilter === filter && ' ]'}
-                  </button>
-                ))}
-              </div>
+        {isMenuOpen && (
+          <nav className="flex flex-col gap-4 mt-6 pb-2 text-sm lg:hidden">
+            {/* Filters */}
+            <div className="flex gap-4 pb-4 border-b border-border/50">
+              {filters.map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => {
+                    handleFilterClick(filter);
+                    setIsMenuOpen(false);
+                  }}
+                  className={`transition-opacity duration-300 ${
+                    activeFilter === filter
+                      ? 'opacity-100'
+                      : 'opacity-40 hover:opacity-70'
+                  }`}
+                >
+                  {activeFilter === filter && '[ '}
+                  {filter}
+                  {activeFilter === filter && ' ]'}
+                </button>
+              ))}
+            </div>
 
-              {/* Nav Links */}
-              <button onClick={() => scrollToSection('about')} className="text-left hover:opacity-50 transition-opacity duration-300">
-                ABOUT
-              </button>
-              <button onClick={() => scrollToSection('contact')} className="text-left hover:opacity-50 transition-opacity duration-300">
-                CONTACT
-              </button>
-              
-              {/* Admin Link (discrete) */}
-              <Link 
-                to="/admin"
-                className="text-xs opacity-20 hover:opacity-50 transition-opacity duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                ⚙ Admin
-              </Link>
-            </motion.nav>
-          )}
-        </AnimatePresence>
+            {/* Nav Links */}
+            <button onClick={() => scrollToSection('about')} className="text-left hover:opacity-50 transition-opacity duration-300">
+              ABOUT
+            </button>
+            <button onClick={() => scrollToSection('contact')} className="text-left hover:opacity-50 transition-opacity duration-300">
+              CONTACT
+            </button>
+            
+            {/* Admin Link (discrete) */}
+            <Link 
+              to="/admin"
+              className="text-xs opacity-20 hover:opacity-50 transition-opacity duration-300"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              ⚙ Admin
+            </Link>
+          </nav>
+        )}
       </div>
     </header>
   );
