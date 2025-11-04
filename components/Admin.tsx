@@ -16,7 +16,7 @@ import {
   importProjects,
   type Project 
 } from "../lib/projectsData";
-import { Trash2, Edit, Download, Upload, RotateCcw, Plus, X, ArrowLeft, LogOut } from "lucide-react";
+import { Trash2, Edit, Download, Upload, RotateCcw, Plus, X, LogOut } from "lucide-react";
 
 interface AdminProps {
   onClose: () => void;
